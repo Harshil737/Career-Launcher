@@ -10,5 +10,6 @@
     <string name="title_activity_test">Test</string>
     <string name="title_activity_user_profile">UserProfile</string>
     <string name="title_activity_main">MainActivity</string>
+    <string name="SERVER_URL">http://10.0.2.2/career/</string>
 
 </resources>

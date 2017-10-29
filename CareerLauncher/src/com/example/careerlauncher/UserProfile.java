@@ -1,13 +1,8 @@
 package com.example.careerlauncher;
 
-import com.example.careerlauncher.R;
-import com.example.careerlauncher.R.layout;
-
 import android.os.Bundle;
-import android.app.Activity;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
-import android.view.Menu;
 import android.view.View;
 import android.view.ViewGroup;
 

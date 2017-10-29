@@ -1,7 +1,5 @@
 package com.example.careerlauncher;
 
-
-
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
@@ -10,6 +8,7 @@ public class HomePagerAdapter extends FragmentPagerAdapter {
 
 	private UserProfile userProfile;
 	private Test test;
+	private Home home;
 
 	public HomePagerAdapter(FragmentManager fm) {
 		super(fm);
@@ -19,32 +18,36 @@ public class HomePagerAdapter extends FragmentPagerAdapter {
 	public Fragment getItem(int pos) {
 		switch (pos) {
 		case 0:
+			home = new Home();
+			return home;
+		case 1:
 			test = new Test();
 			return test;
-		case 1:
+		case 2:
 			userProfile = new UserProfile();
 			return userProfile;
 		default:
-			test = new Test();
-			return test;
+			home = new Home();
+			return home;
 		}
 	}
 
 	@Override
 	public int getCount() {
-		return 2;
+		return 3;
 	}
 
 	@Override
 	public CharSequence getPageTitle(int position) {
 		switch (position) {
 		case 0:
-			return "TEST";
+			return "HOME";
 		case 1:
+			return "TEST";
+		case 2:
 			return "PROFILE";
 		default:
-			return "TEST";
+			return "HOME";
 		}
 	}
-
 }
