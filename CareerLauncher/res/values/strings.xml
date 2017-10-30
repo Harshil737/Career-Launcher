@@ -11,5 +11,7 @@
     <string name="title_activity_user_profile">UserProfile</string>
     <string name="title_activity_main">MainActivity</string>
     <string name="SERVER_URL">http://10.0.2.2/career/</string>
+    <string name="title_activity_test_page">TestPage</string>
+    <string name="title_activity_test_main_page">TestMainPage</string>
 
 </resources>

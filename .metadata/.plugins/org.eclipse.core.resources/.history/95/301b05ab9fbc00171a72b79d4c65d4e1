@@ -1,0 +1,8 @@
+package com.example.careerlauncher;
+
+public class QuestionClass {
+
+	String que_id, qestion, op1, op2, op3, op4, is_correct;
+	int kf_quw_id;
+
+}

@@ -1,0 +1,63 @@
+package com.example.careerlauncher;
+
+import android.app.Activity;
+import android.os.Bundle;
+import android.support.v4.app.Fragment;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.RadioButton;
+import android.widget.TextView;
+
+public class TestPage extends Fragment {
+
+	View fragView;
+	private String finalURL = "";
+	private static String LOG_TAG = TestPage.class.getSimpleName();
+	private QuestionClass question;
+	private TextView tv_que;
+	private RadioButton rb_op1, rb_op2;
+	OnDataPass dataPasser;
+
+	public TestPage(QuestionClass questionClass) {
+		// TODO Auto-generated constructor stub
+		question = questionClass;
+	}
+
+	@Override
+	public void onCreate(Bundle savedInstanceState) {
+		// TODO Auto-generated method stub
+		super.onCreate(savedInstanceState);
+	}
+
+	@Override
+	public View onCreateView(LayoutInflater inflater, ViewGroup container,
+			Bundle savedInstanceState) {
+		// TODO Auto-generated method stub
+		fragView = inflater.inflate(R.layout.fragment_test_page, container,
+				false);
+		initView();
+		return fragView;
+	}
+
+	@Override
+	public void onAttach(Activity activity) {
+		// TODO Auto-generated method stub
+		super.onAttach(activity);
+		dataPasser = (OnDataPass) activity;
+	}
+
+	void initView() {
+		tv_que = (TextView) fragView.findViewById(R.id.test_page_tv_que);
+		rb_op1 = (RadioButton) fragView.findViewById(R.id.test_page_rb_op1);
+		rb_op2 = (RadioButton) fragView.findViewById(R.id.test_page_rb_op2);
+
+		tv_que.setText(question.getQestion());
+		rb_op1.setText(question.getOp1().toString());
+		rb_op2.setText(question.getOp2().toString());
+	}
+
+	public interface OnDataPass {
+		public void onDataPass(String data);
+	}
+}

@@ -1,0 +1,41 @@
+package com.example.careerlauncher;
+
+import java.util.ArrayList;
+
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentPagerAdapter;
+
+public class PageSliderAdapter extends FragmentPagerAdapter {
+
+	ArrayList<QuestionClass> list;
+	
+	public PageSliderAdapter(FragmentManager fm) {
+		super(fm);
+		// TODO Auto-generated constructor stub
+	}
+	
+	public PageSliderAdapter(FragmentManager fm, ArrayList<QuestionClass> list) {
+		super(fm);
+		this.list = list;
+	}
+
+	@Override
+	public Fragment getItem(int pos) {
+		// TODO Auto-generated method stub
+		if (pos == 0) {
+			return new TestPage();
+		} else if (pos == 1) {
+			return new TestPage();
+		} else {
+			return null;
+		}
+	}
+
+	@Override
+	public int getCount() {
+		// TODO Auto-generated method stub
+		return 15;
+	}
+
+}
