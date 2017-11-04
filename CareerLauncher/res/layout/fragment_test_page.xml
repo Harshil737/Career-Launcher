@@ -40,4 +40,22 @@
             android:layout_height="wrap_content" />
     </RadioGroup>
 
+    <Button
+        android:id="@+id/test_page_btn_previous"
+        android:layout_width="125dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_marginBottom="24dp"
+        android:text="PREVIOUS" />
+
+    <Button
+        android:id="@+id/test_page_btn_next"
+        android:layout_width="125dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginBottom="24dp"
+        android:text="NEXT" />
+
 </RelativeLayout>

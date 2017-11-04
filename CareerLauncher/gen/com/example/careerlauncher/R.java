@@ -45,11 +45,11 @@ public final class R {
         public static final int shape_round_et=0x7f020009;
     }
     public static final class id {
-        public static final int action_settings=0x7f090015;
-        public static final int home_gridView=0x7f09000b;
-        public static final int item_quiz_iv_poster=0x7f090013;
-        public static final int item_quiz_main=0x7f090012;
-        public static final int item_quiz_tv_name=0x7f090014;
+        public static final int action_settings=0x7f09001c;
+        public static final int home_gridView=0x7f090010;
+        public static final int item_quiz_iv_poster=0x7f09001a;
+        public static final int item_quiz_main=0x7f090019;
+        public static final int item_quiz_tv_name=0x7f09001b;
         public static final int login_btn_login=0x7f090002;
         public static final int login_et_email=0x7f090000;
         public static final int login_et_password=0x7f090001;
@@ -60,12 +60,19 @@ public final class R {
         public static final int register_et_name=0x7f090005;
         public static final int register_et_password=0x7f090007;
         public static final int register_tv_login=0x7f090009;
-        public static final int test_page_rbGroup=0x7f09000d;
-        public static final int test_page_rb_op1=0x7f09000e;
-        public static final int test_page_rb_op2=0x7f09000f;
-        public static final int test_page_rb_op3=0x7f090010;
-        public static final int test_page_rb_op4=0x7f090011;
-        public static final int test_page_tv_que=0x7f09000c;
+        public static final int test_page_btn_next=0x7f090018;
+        public static final int test_page_btn_previous=0x7f090017;
+        public static final int test_page_rbGroup=0x7f090012;
+        public static final int test_page_rb_op1=0x7f090013;
+        public static final int test_page_rb_op2=0x7f090014;
+        public static final int test_page_rb_op3=0x7f090015;
+        public static final int test_page_rb_op4=0x7f090016;
+        public static final int test_page_tv_que=0x7f090011;
+        public static final int test_result_btn_home=0x7f09000f;
+        public static final int test_result_tv_correct=0x7f09000b;
+        public static final int test_result_tv_marks=0x7f09000e;
+        public static final int test_result_tv_unattempted=0x7f09000d;
+        public static final int test_result_tv_wrong=0x7f09000c;
         public static final int test_viewPager=0x7f09000a;
     }
     public static final class layout {
@@ -74,11 +81,12 @@ public final class R {
         public static final int activity_register=0x7f030002;
         public static final int activity_splash=0x7f030003;
         public static final int activity_test_main_page=0x7f030004;
-        public static final int fragment_home=0x7f030005;
-        public static final int fragment_test=0x7f030006;
-        public static final int fragment_test_page=0x7f030007;
-        public static final int fragment_user_profile=0x7f030008;
-        public static final int item_quiz=0x7f030009;
+        public static final int activity_test_result_page=0x7f030005;
+        public static final int fragment_home=0x7f030006;
+        public static final int fragment_test=0x7f030007;
+        public static final int fragment_test_page=0x7f030008;
+        public static final int fragment_user_profile=0x7f030009;
+        public static final int item_quiz=0x7f03000a;
     }
     public static final class menu {
         public static final int home=0x7f080000;
@@ -87,7 +95,8 @@ public final class R {
         public static final int test=0x7f080003;
         public static final int test_main_page=0x7f080004;
         public static final int test_page=0x7f080005;
-        public static final int user_profile=0x7f080006;
+        public static final int test_result_page=0x7f080006;
+        public static final int user_profile=0x7f080007;
     }
     public static final class string {
         public static final int SERVER_URL=0x7f060009;
@@ -101,6 +110,7 @@ public final class R {
         public static final int title_activity_test=0x7f060006;
         public static final int title_activity_test_main_page=0x7f06000b;
         public static final int title_activity_test_page=0x7f06000a;
+        public static final int title_activity_test_result_page=0x7f06000c;
         public static final int title_activity_user_profile=0x7f060007;
     }
     public static final class style {

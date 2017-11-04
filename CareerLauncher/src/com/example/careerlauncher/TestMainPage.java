@@ -21,7 +21,6 @@ import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.ViewPager;
 import android.text.TextUtils;
-import android.util.Log;
 import android.view.Menu;
 import android.widget.Toast;
 
@@ -33,6 +32,8 @@ public class TestMainPage extends FragmentActivity implements
 	private ViewPager viewPager;
 	private ArrayList<QuestionClass> queList;
 	private static String LOG_TAG = TestMainPage.class.getSimpleName();
+	private int answers[] = new int[15];
+	private int correct, unattempted, wrong;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -43,6 +44,7 @@ public class TestMainPage extends FragmentActivity implements
 		int ID = i.getIntExtra("ID", 1);
 
 		viewPager = (ViewPager) findViewById(R.id.test_viewPager);
+		viewPager.setOffscreenPageLimit(15);
 		finalURL = getResources().getString(R.string.SERVER_URL)
 				+ "Question.php?action=getQuestionByQuize&qid=" + ID + "";
 		new QuestionTask().execute();
@@ -56,15 +58,69 @@ public class TestMainPage extends FragmentActivity implements
 	}
 
 	@Override
-	public void onAnswerClicked(String data) {
+	public void onAnswerClicked(String data, int pos) {
 		// TODO Auto-generated method stub
-		Toast.makeText(getApplicationContext(), data, Toast.LENGTH_LONG).show();
+
+		if (data.equals(queList.get(pos).getIs_correct())) {
+			answers[pos] = 1;
+			Toast.makeText(
+					getApplicationContext(),
+					"Correct : " + score(pos) + "\n" + "Wrong : " + wrong
+							+ "\n" + "Unattempted : " + unattempted,
+					Toast.LENGTH_SHORT).show();
+		} else {
+			answers[pos] = 0;
+			Toast.makeText(
+					getApplicationContext(),
+					"Correct : " + score(pos) + "\n" + "Wrong : " + wrong
+							+ "\n" + "Unattempted : " + unattempted,
+					Toast.LENGTH_SHORT).show();
+		}
+	}
+
+	@Override
+	public void onNextClicked() {
+		// TODO Auto-generated method stub
+		int pos = viewPager.getCurrentItem();
+		viewPager.setCurrentItem(pos + 1);
+	}
+
+	@Override
+	public void onPreviousClicked() {
+		// TODO Auto-generated method stub
+		int pos = viewPager.getCurrentItem();
+		viewPager.setCurrentItem(pos - 1);
+	}
+
+	@Override
+	public void onFinishClicked() {
+		// TODO Auto-generated method stub
+		Intent resultIntent = new Intent(getApplicationContext(),
+				TestResultPage.class);
+		resultIntent.putExtra("Correct", score(14));
+		resultIntent.putExtra("Wrong", score(14));
+		resultIntent.putExtra("Unattempted", score(14));
+		startActivity(resultIntent);
+	}
+
+	int score(int pos) {
+		correct = 0;
+		wrong = 0;
+		unattempted = 0;
+		for (int i = 0; i <= pos; i++) {
+			if (answers[i] == 1) {
+				correct += 1;
+			} else if (answers[i] == 0) {
+				wrong += 1;
+			} else if (answers[i] == 2) {
+				unattempted = pos - (correct + wrong);
+			}
+		}
+		return correct;
 	}
 
 	void updateUI(ArrayList<QuestionClass> que) {
 		queList = que;
-		Toast.makeText(getApplicationContext(), queList.get(0).getQestion(),
-				Toast.LENGTH_LONG).show();
 		pageSliderAdapter = new PageSliderAdapter(getSupportFragmentManager(),
 				queList);
 		viewPager.setAdapter(pageSliderAdapter);
@@ -146,7 +202,7 @@ public class TestMainPage extends FragmentActivity implements
 				updateUI(result);
 			} else {
 				Toast.makeText(getApplicationContext(), "Failure",
-						Toast.LENGTH_LONG).show();
+						Toast.LENGTH_SHORT).show();
 			}
 		}
 	}

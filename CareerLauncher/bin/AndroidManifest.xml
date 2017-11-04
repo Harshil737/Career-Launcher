@@ -56,6 +56,10 @@
             android:name="com.example.careerlauncher.TestMainPage"
             android:label="@string/title_activity_test_main_page" >
         </activity>
+        <activity
+            android:name="com.example.careerlauncher.TestResultPage"
+            android:label="@string/title_activity_test_result_page" >
+        </activity>
     </application>
 
 </manifest>
