@@ -12,7 +12,7 @@ import android.widget.Toast;
 
 public class TestResultPage extends Activity {
 
-	private TextView tv_correct, tv_wrong, tv_unattempted, tv_total;
+	private TextView tv_correct, tv_wrong, tv_unattempted, tv_total, tv_score;
 	private Button btn_home;
 
 	@Override
@@ -29,12 +29,14 @@ public class TestResultPage extends Activity {
 		tv_wrong = (TextView) findViewById(R.id.test_result_tv_wrong);
 		tv_unattempted = (TextView) findViewById(R.id.test_result_tv_unattempted);
 		tv_total = (TextView) findViewById(R.id.test_result_tv_marks);
+		tv_score = (TextView) findViewById(R.id.test_result_page_tv_score);
 		btn_home = (Button) findViewById(R.id.test_result_btn_home);
 
 		tv_correct.setText(correct + "");
 		tv_wrong.setText(wrong + "");
 		tv_unattempted.setText(unattemped + "");
 		tv_total.setText(correct + "");
+		tv_score.setText("Your score : " + correct);
 
 		btn_home.setOnClickListener(new OnClickListener() {
 

@@ -2,17 +2,38 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/offWhite"
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context=".TestResultPage" >
 
+    <RelativeLayout
+        android:id="@+id/test_result_page_tmp1"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:background="@color/Green" >
+
+        <TextView
+            android:id="@+id/test_result_page_tv_score"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:text="YOUR SCORE"
+            android:textColor="@color/colorWhite"
+            android:textSize="48sp"
+            android:textStyle="bold" />
+    </RelativeLayout>
+
     <LinearLayout
+        android:id="@+id/test_result_page_tmp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_centerVertical="true"
-        android:gravity="center_vertical"
+        android:layout_below="@id/test_result_page_tmp1"
+        android:layout_marginTop="7dp"
+        android:background="@color/colorWhite"
         android:orientation="vertical" >
 
         <TextView
@@ -20,6 +41,7 @@
             android:layout_height="wrap_content"
             android:gravity="center_horizontal"
             android:text="TEST SUMMARY"
+            android:textSize="24sp"
             android:textStyle="bold" />
 
         <LinearLayout
@@ -31,9 +53,10 @@
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
+                android:layout_weight="3"
                 android:gravity="center_horizontal"
-                android:text="Correct Answers" />
+                android:text="Correct Answers"
+                android:textSize="24sp" />
 
             <TextView
                 android:id="@+id/test_result_tv_correct"
@@ -41,7 +64,8 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:gravity="center_horizontal"
-                android:text="12" />
+                android:text="12"
+                android:textSize="24sp" />
         </LinearLayout>
 
         <LinearLayout
@@ -53,9 +77,10 @@
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
+                android:layout_weight="3"
                 android:gravity="center_horizontal"
-                android:text="Wrong Answers" />
+                android:text="Wrong Answers"
+                android:textSize="24sp" />
 
             <TextView
                 android:id="@+id/test_result_tv_wrong"
@@ -63,7 +88,8 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:gravity="center_horizontal"
-                android:text="2" />
+                android:text="2"
+                android:textSize="24sp" />
         </LinearLayout>
 
         <LinearLayout
@@ -75,9 +101,10 @@
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
+                android:layout_weight="3"
                 android:gravity="center_horizontal"
-                android:text="Unattempted" />
+                android:text="Unattempted"
+                android:textSize="24sp" />
 
             <TextView
                 android:id="@+id/test_result_tv_unattempted"
@@ -85,7 +112,8 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:gravity="center_horizontal"
-                android:text="1" />
+                android:text="1"
+                android:textSize="24sp" />
         </LinearLayout>
 
         <LinearLayout
@@ -97,9 +125,10 @@
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
+                android:layout_weight="3"
                 android:gravity="center_horizontal"
-                android:text="Marks" />
+                android:text="Marks"
+                android:textSize="24sp" />
 
             <TextView
                 android:id="@+id/test_result_tv_marks"
@@ -107,16 +136,21 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:gravity="center_horizontal"
-                android:text="12" />
+                android:text="12"
+                android:textSize="24sp" />
         </LinearLayout>
-
-        <Button
-            android:id="@+id/test_result_btn_home"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="24dp"
-            android:text="Quiz Page" />
     </LinearLayout>
+
+    <Button
+        android:id="@+id/test_result_btn_home"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/test_result_page_tmp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="7dp"
+        android:background="#f64c49"
+        android:text="Take More Quiz"
+        android:textColor="#FFFFFF"
+        android:textSize="24sp" />
 
 </RelativeLayout>

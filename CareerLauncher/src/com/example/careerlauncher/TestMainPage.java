@@ -98,8 +98,8 @@ public class TestMainPage extends FragmentActivity implements
 		Intent resultIntent = new Intent(getApplicationContext(),
 				TestResultPage.class);
 		resultIntent.putExtra("Correct", score(14));
-		resultIntent.putExtra("Wrong", score(14));
-		resultIntent.putExtra("Unattempted", score(14));
+		resultIntent.putExtra("Wrong", wrong);
+		resultIntent.putExtra("Unattempted", unattempted);
 		startActivity(resultIntent);
 	}
 

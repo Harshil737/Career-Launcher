@@ -15,6 +15,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import android.app.AlertDialog;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -22,10 +23,13 @@ import android.support.v4.app.Fragment;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
+import android.widget.Button;
 import android.widget.GridView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class Home extends Fragment implements OnItemClickListener {
@@ -35,6 +39,7 @@ public class Home extends Fragment implements OnItemClickListener {
 	private ArrayList<QuizClass> quizList;
 	private QuizAdapter quizAdapter;
 	private String finalURL = "";
+	private AlertDialog.Builder builder;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -59,13 +64,32 @@ public class Home extends Fragment implements OnItemClickListener {
 	}
 
 	@Override
-	public void onItemClick(AdapterView<?> arg0, View arg1, int arg2, long arg3) {
+	public void onItemClick(AdapterView<?> arg0, View arg1, final int arg2,
+			long arg3) {
 		// TODO Auto-generated method stub
-		Toast.makeText(getActivity(), quizList.get(arg2).getId() + "",
-				Toast.LENGTH_LONG).show();
-		Intent quizStartIntent = new Intent(getActivity(), TestMainPage.class);
-		quizStartIntent.putExtra("ID", quizList.get(arg2).getId());
-		startActivity(quizStartIntent);
+
+		builder = new AlertDialog.Builder(getActivity());
+
+		View view = LayoutInflater.from(getActivity()).inflate(
+				R.layout.item_start_quiz, null);
+		builder.setView(view).show();
+
+		Button button = (Button) view.findViewById(R.id.item_start_quiz_yes);
+		TextView textView = (TextView) view
+				.findViewById(R.id.item_start_quiz_tv_name);
+
+		textView.setText(quizList.get(arg2).getName() + " Quiz");
+		button.setOnClickListener(new OnClickListener() {
+
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				Intent quizStartIntent = new Intent(getActivity(),
+						TestMainPage.class);
+				quizStartIntent.putExtra("ID", quizList.get(arg2).getId());
+				startActivity(quizStartIntent);
+			}
+		});
 	}
 
 	private void updateUI(ArrayList<QuizClass> quiz) {
