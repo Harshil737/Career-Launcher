@@ -93,31 +93,20 @@ public class TestPage extends Fragment {
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
+				if (rbGroup.getCheckedRadioButtonId() == -1) {
+					answerClickListener.onAnswerClicked("null", pos);
+				} else {
+					RadioButton rb = (RadioButton) fragView
+							.findViewById(rbGroup.getCheckedRadioButtonId());
+					answerClickListener.onAnswerClicked(rb.getText() + "", pos);
+				}
+
 				if (pos < 14) {
 					answerClickListener.onNextClicked();
 				} else {
 					answerClickListener.onFinishClicked();
 				}
 
-			}
-		});
-
-		rbGroup.setOnCheckedChangeListener(new OnCheckedChangeListener() {
-
-			@Override
-			public void onCheckedChanged(RadioGroup group, int checkedId) {
-				if (checkedId != -1) {
-					RadioButton rb = (RadioButton) fragView
-							.findViewById(checkedId);
-					if (rb != null) {
-						answerClickListener.onAnswerClicked(rb.getText() + "",
-								pos);
-					}
-				} else {
-					Toast.makeText(getActivity(),
-							"You Have Selected : Nothing", Toast.LENGTH_LONG)
-							.show();
-				}
 			}
 		});
 	}

@@ -1,14 +1,13 @@
 package com.example.careerlauncher;
 
-import android.os.Bundle;
 import android.app.Activity;
 import android.content.Intent;
+import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 
 public class TestResultPage extends Activity {
 
@@ -19,6 +18,8 @@ public class TestResultPage extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_test_result_page);
+
+		getActionBar().setTitle("Result");
 
 		Intent resultIntent = getIntent();
 		int correct = resultIntent.getIntExtra("Correct", 0);
@@ -35,8 +36,8 @@ public class TestResultPage extends Activity {
 		tv_correct.setText(correct + "");
 		tv_wrong.setText(wrong + "");
 		tv_unattempted.setText(unattemped + "");
-		tv_total.setText(correct + "");
-		tv_score.setText("Your score : " + correct);
+		tv_total.setText(((correct * 4) - (wrong * 1)) + "");
+		tv_score.setText("Your score : " + ((correct * 4) - (wrong * 1)));
 
 		btn_home.setOnClickListener(new OnClickListener() {
 

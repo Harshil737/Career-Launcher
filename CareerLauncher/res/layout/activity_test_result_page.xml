@@ -39,8 +39,9 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="7dp"
             android:gravity="center_horizontal"
-            android:text="TEST SUMMARY"
+            android:text="QUIZ SUMMARY"
             android:textSize="24sp"
             android:textStyle="bold" />
 
@@ -53,8 +54,8 @@
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="2dp"
                 android:layout_weight="3"
-                android:gravity="center_horizontal"
                 android:text="Correct Answers"
                 android:textSize="24sp" />
 
@@ -62,8 +63,9 @@
                 android:id="@+id/test_result_tv_correct"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_marginRight="2dp"
                 android:layout_weight="1"
-                android:gravity="center_horizontal"
+                android:gravity="right"
                 android:text="12"
                 android:textSize="24sp" />
         </LinearLayout>
@@ -77,8 +79,8 @@
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="2dp"
                 android:layout_weight="3"
-                android:gravity="center_horizontal"
                 android:text="Wrong Answers"
                 android:textSize="24sp" />
 
@@ -86,8 +88,9 @@
                 android:id="@+id/test_result_tv_wrong"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_marginRight="2dp"
                 android:layout_weight="1"
-                android:gravity="center_horizontal"
+                android:gravity="right"
                 android:text="2"
                 android:textSize="24sp" />
         </LinearLayout>
@@ -101,8 +104,8 @@
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="2dp"
                 android:layout_weight="3"
-                android:gravity="center_horizontal"
                 android:text="Unattempted"
                 android:textSize="24sp" />
 
@@ -110,8 +113,9 @@
                 android:id="@+id/test_result_tv_unattempted"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_marginRight="2dp"
                 android:layout_weight="1"
-                android:gravity="center_horizontal"
+                android:gravity="right"
                 android:text="1"
                 android:textSize="24sp" />
         </LinearLayout>
@@ -125,8 +129,8 @@
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="2dp"
                 android:layout_weight="3"
-                android:gravity="center_horizontal"
                 android:text="Marks"
                 android:textSize="24sp" />
 
@@ -134,8 +138,9 @@
                 android:id="@+id/test_result_tv_marks"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_marginRight="2dp"
                 android:layout_weight="1"
-                android:gravity="center_horizontal"
+                android:gravity="right"
                 android:text="12"
                 android:textSize="24sp" />
         </LinearLayout>

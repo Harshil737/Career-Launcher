@@ -18,6 +18,7 @@
         android:padding="7dp"
         android:text="DEMO"
         android:textColor="@color/colorPrimary"
+        android:textSize="16sp"
         android:textStyle="bold" />
 
     <View
@@ -35,14 +36,16 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="2"
-            android:text="Number of Questions" />
+            android:text="Number of Questions"
+            android:textSize="16sp" />
 
         <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="right"
-            android:text="15" />
+            android:text="15"
+            android:textSize="16sp" />
     </LinearLayout>
 
     <LinearLayout
@@ -55,14 +58,16 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="2"
-            android:text="Total Marks" />
+            android:text="Total Marks"
+            android:textSize="16sp" />
 
         <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="right"
-            android:text="15" />
+            android:text="15"
+            android:textSize="16sp" />
     </LinearLayout>
 
     <LinearLayout
@@ -75,14 +80,38 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="2"
-            android:text="Marks for Correct Answer" />
+            android:text="Marks for Correct Answer"
+            android:textSize="16sp" />
 
         <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="right"
-            android:text="1" />
+            android:text="4"
+            android:textSize="16sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="7dp"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:text="Penalty for Wrong Answer"
+            android:textSize="16sp" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="right"
+            android:text="1"
+            android:textSize="16sp" />
     </LinearLayout>
 
     <Button
@@ -91,6 +120,7 @@
         android:layout_height="wrap_content"
         android:background="#03a9f4"
         android:text="START QUIZ"
-        android:textColor="@color/colorWhite" />
+        android:textColor="@color/colorWhite"
+        android:textSize="16sp" />
 
 </LinearLayout>

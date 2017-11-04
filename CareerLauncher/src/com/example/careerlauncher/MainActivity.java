@@ -15,6 +15,8 @@ public class MainActivity extends FragmentActivity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 
+		getActionBar().setTitle("Career Launcher");
+
 		viewPager = (ViewPager) findViewById(R.id.main_viewPager);
 		homePagerAdapter = new HomePagerAdapter(getSupportFragmentManager());
 		viewPager.setAdapter(homePagerAdapter);

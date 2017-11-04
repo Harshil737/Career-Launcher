@@ -34,7 +34,8 @@
             android:gravity="center"
             android:maxLines="1"
             android:text="Categories"
-            android:textColor="@android:color/white" />
+            android:textColor="@android:color/white"
+            android:textSize="16sp" />
     </RelativeLayout>
 
 </RelativeLayout>

@@ -11,7 +11,9 @@
     <TextView
         android:id="@+id/test_page_tv_que"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:layout_marginTop="7dp"
+        android:textSize="24sp" />
 
     <RadioGroup
         android:id="@+id/test_page_rbGroup"
@@ -22,22 +24,30 @@
         <RadioButton
             android:id="@+id/test_page_rb_op1"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:layout_marginTop="7dp"
+         android:textSize="24sp" />
 
         <RadioButton
             android:id="@+id/test_page_rb_op2"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:layout_marginTop="7dp"
+            android:textSize="24sp" />
 
         <RadioButton
             android:id="@+id/test_page_rb_op3"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:layout_marginTop="7dp"
+            android:textSize="24sp" />
 
         <RadioButton
             android:id="@+id/test_page_rb_op4"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:layout_marginTop="7dp"
+            android:textSize="24sp" />
     </RadioGroup>
 
     <Button
@@ -47,7 +57,8 @@
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
         android:layout_marginBottom="24dp"
-        android:text="PREVIOUS" />
+        android:text="PREVIOUS"
+        android:textSize="16sp" />
 
     <Button
         android:id="@+id/test_page_btn_next"
@@ -56,6 +67,7 @@
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
         android:layout_marginBottom="24dp"
-        android:text="NEXT" />
+        android:text="NEXT"
+        android:textSize="16sp" />
 
 </RelativeLayout>
