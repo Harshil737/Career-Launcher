@@ -14,7 +14,9 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.AsyncTask;
@@ -38,6 +40,8 @@ public class UserProfile extends Fragment {
 	private String finalURL = "";
 	private static String LOG_TAG = UserProfile.class.getSimpleName();
 	private int uid;
+	private String name, mail, password;
+	private AlertDialog dialog_update;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -66,6 +70,58 @@ public class UserProfile extends Fragment {
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
+				View view = LayoutInflater.from(getActivity()).inflate(
+						R.layout.item_profile_update, null);
+
+				final TextView tv_name = (TextView) view
+						.findViewById(R.id.item_profile_name);
+				final TextView tv_mail = (TextView) view
+						.findViewById(R.id.item_profile_mail);
+				final TextView tv_password = (TextView) view
+						.findViewById(R.id.item_profile_password);
+				Button btn_update = (Button) view
+						.findViewById(R.id.item_profile_btn_update);
+				Button btn_cancel = (Button) view
+						.findViewById(R.id.item_profile_btn_cancel);
+
+				tv_name.setText(name);
+				tv_mail.setText(mail);
+				tv_password.setText(password);
+
+				dialog_update = new AlertDialog.Builder(getActivity()).create();
+				dialog_update.setView(view);
+				dialog_update.show();
+
+				btn_update.setOnClickListener(new OnClickListener() {
+
+					@Override
+					public void onClick(View v) {
+						// TODO Auto-generated method stub
+						name = tv_name.getText().toString();
+						mail = tv_mail.getText().toString();
+						password = tv_password.getText().toString();
+						finalURL = getResources()
+								.getString(R.string.SERVER_URL)
+								+ "User.php?action=updateUser&uid="
+								+ uid
+								+ "&name="
+								+ name
+								+ "&mail="
+								+ mail
+								+ "&password=" + password + "";
+						new UserTask().execute();
+						dialog_update.dismiss();
+					}
+				});
+
+				btn_cancel.setOnClickListener(new OnClickListener() {
+
+					@Override
+					public void onClick(View v) {
+						// TODO Auto-generated method stub
+						dialog_update.dismiss();
+					}
+				});
 
 			}
 		});
@@ -80,8 +136,11 @@ public class UserProfile extends Fragment {
 	}
 
 	void updateUI(UserClass usr) {
-		tv_name.setText(usr.getName());
-		tv_mail.setText(usr.getEmail());
+		name = usr.getName();
+		mail = usr.getEmail();
+		password = usr.getPassword();
+		tv_name.setText(name);
+		tv_mail.setText(mail);
 	}
 
 	private class UserTask extends AsyncTask<URL, Object, UserClass> {
@@ -133,7 +192,9 @@ public class UserProfile extends Fragment {
 					// Log.d(LOG_TAG, name);
 					String email = jsonObject.getString("email");
 					// Log.d(LOG_TAG, email);
-					UserClass user = new UserClass(uid, name, email);
+					String password = jsonObject.getString("password");
+
+					UserClass user = new UserClass(uid, name, email, password);
 
 					// SharedPreferences mPreferences = getSharedPreferences(
 					// "system", Context.MODE_PRIVATE);

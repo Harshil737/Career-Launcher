@@ -1,13 +1,21 @@
 package com.example.careerlauncher;
 
 public class UserClass {
-	String name, email;
+	String name, email, password;
 	int uid;
 
 	public UserClass(int uid, String name, String email) {
 		super();
 		this.name = name;
 		this.email = email;
+		this.uid = uid;
+	}
+
+	public UserClass(int uid, String name, String email, String password) {
+		super();
+		this.name = name;
+		this.email = email;
+		this.password = password;
 		this.uid = uid;
 	}
 
@@ -33,6 +41,14 @@ public class UserClass {
 
 	public void setUid(int uid) {
 		this.uid = uid;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
 	}
 
 }

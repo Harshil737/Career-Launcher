@@ -47,19 +47,21 @@ public final class R {
         public static final int shape_round_et=0x7f02000b;
     }
     public static final class id {
-        public static final int action_settings=0x7f09002f;
+        public static final int action_settings=0x7f090031;
         public static final int home_gridView=0x7f090013;
+        public static final int item_profile_btn_cancel=0x7f09002b;
+        public static final int item_profile_btn_update=0x7f09002a;
         public static final int item_profile_mail=0x7f090027;
         public static final int item_profile_name=0x7f090025;
         public static final int item_profile_password=0x7f090029;
         public static final int item_profile_tv_email=0x7f090026;
         public static final int item_profile_tv_name=0x7f090024;
         public static final int item_profile_tv_password=0x7f090028;
-        public static final int item_quiz_iv_poster=0x7f09002b;
-        public static final int item_quiz_main=0x7f09002a;
-        public static final int item_quiz_tv_name=0x7f09002c;
-        public static final int item_start_quiz_tv_name=0x7f09002d;
-        public static final int item_start_quiz_yes=0x7f09002e;
+        public static final int item_quiz_iv_poster=0x7f09002d;
+        public static final int item_quiz_main=0x7f09002c;
+        public static final int item_quiz_tv_name=0x7f09002e;
+        public static final int item_start_quiz_tv_name=0x7f09002f;
+        public static final int item_start_quiz_yes=0x7f090030;
         public static final int login_btn_login=0x7f090002;
         public static final int login_et_email=0x7f090000;
         public static final int login_et_password=0x7f090001;

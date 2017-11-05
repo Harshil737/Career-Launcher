@@ -15,12 +15,15 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.ViewPager;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.Menu;
 import android.widget.Toast;
 
@@ -28,12 +31,13 @@ public class TestMainPage extends FragmentActivity implements
 		TestPage.onAnswerClickListener {
 
 	private PageSliderAdapter pageSliderAdapter;
-	private String finalURL = "";
+	private String finalURL = "", finalURLResult = "";
 	private ViewPager viewPager;
 	private ArrayList<QuestionClass> queList;
 	private static String LOG_TAG = TestMainPage.class.getSimpleName();
 	private int answers[] = new int[15];
 	private String quizName;
+	private int QID, UID;
 	private int correct, unattempted, wrong;
 
 	@Override
@@ -42,15 +46,19 @@ public class TestMainPage extends FragmentActivity implements
 		setContentView(R.layout.activity_test_main_page);
 
 		Intent i = getIntent();
-		int ID = i.getIntExtra("ID", 1);
+		QID = i.getIntExtra("ID", 1);
 		quizName = i.getStringExtra("Name");
+
+		SharedPreferences mPreferences = getSharedPreferences("system",
+				Context.MODE_PRIVATE);
+		UID = mPreferences.getInt("UID", 0);
 
 		getActionBar().setTitle(quizName + " Quiz");
 
 		viewPager = (ViewPager) findViewById(R.id.test_viewPager);
 		viewPager.setOffscreenPageLimit(15);
 		finalURL = getResources().getString(R.string.SERVER_URL)
-				+ "Question.php?action=getQuestionByQuize&qid=" + ID + "";
+				+ "Question.php?action=getQuestionByQuize&qid=" + QID + "";
 		new QuestionTask().execute();
 	}
 
@@ -100,9 +108,15 @@ public class TestMainPage extends FragmentActivity implements
 	@Override
 	public void onFinishClicked() {
 		// TODO Auto-generated method stub
+		score(14);
+		finalURLResult = getResources().getString(R.string.SERVER_URL)
+				+ "Question.php?action=submitResult&uid=" + UID + "&qid=" + QID
+				+ "&marks=" + ((correct * 4) - wrong) + "";
+		new ResultTask().execute();
+		Log.d(LOG_TAG, finalURLResult);
 		Intent resultIntent = new Intent(getApplicationContext(),
 				TestResultPage.class);
-		resultIntent.putExtra("Correct", score(14));
+		resultIntent.putExtra("Correct", correct);
 		resultIntent.putExtra("Wrong", wrong);
 		resultIntent.putExtra("Unattempted", unattempted);
 		startActivity(resultIntent);
@@ -118,7 +132,7 @@ public class TestMainPage extends FragmentActivity implements
 			} else if (answers[i] == 0) {
 				wrong += 1;
 			} else if (answers[i] == 2) {
-				unattempted = pos - (correct + wrong);
+				unattempted += 1;
 			}
 		}
 		return correct;
@@ -211,4 +225,66 @@ public class TestMainPage extends FragmentActivity implements
 			}
 		}
 	}
+
+	private class ResultTask extends AsyncTask<URL, Object, Boolean> {
+
+		@Override
+		protected Boolean doInBackground(URL... params) {
+			// TODO Auto-generated method stub
+			HttpClient httpClient = new DefaultHttpClient();
+			HttpGet httpGet = new HttpGet(finalURLResult);
+			StringBuffer stringBuffer = new StringBuffer();
+
+			try {
+				HttpResponse httpResponse = httpClient.execute(httpGet);
+				BufferedReader bufferedReader = new BufferedReader(
+						new InputStreamReader(httpResponse.getEntity()
+								.getContent()));
+
+				String line = "";
+				while ((line = bufferedReader.readLine()) != null) {
+					stringBuffer.append(line);
+				}
+			} catch (ClientProtocolException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+
+			Boolean result;
+			result = extractFeatureFromJson(stringBuffer.toString());
+			return result;
+		}
+
+		private Boolean extractFeatureFromJson(String queJSON) {
+			if (TextUtils.isEmpty(queJSON))
+				return null;
+			try {
+				JSONObject baseJsonResponse = new JSONObject(queJSON);
+				int success = baseJsonResponse.getInt("Status");
+				if (success == 1) {
+					return true;
+				}
+			} catch (JSONException e) {
+				Log.e(LOG_TAG, "Problem parsing the user JSON results", e);
+			}
+			return null;
+		}
+
+		@Override
+		protected void onPostExecute(Boolean result) {
+			// TODO Auto-generated method stub
+			super.onPostExecute(result);
+			if (result != null) {
+				Toast.makeText(getApplicationContext(), "Success",
+						Toast.LENGTH_SHORT).show();
+			} else {
+				Toast.makeText(getApplicationContext(), "Failure",
+						Toast.LENGTH_SHORT).show();
+			}
+		}
+	}
+
 }
