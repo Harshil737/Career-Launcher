@@ -15,7 +15,9 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -141,16 +143,15 @@ public class Register extends Activity implements OnClickListener {
 
 					UserClass user = new UserClass(uid, name, email);
 
-					// SharedPreferences mPreferences = getSharedPreferences(
-					// "system", Context.MODE_PRIVATE);
-					// SharedPreferences.Editor preEditor = mPreferences.edit();
-					// String json = userJSON;
-					// preEditor.putString("UserDetails", json);
-					// preEditor.putInt("UID", user.getUid());
-					// preEditor.putString("name", user.getName());
-					// preEditor.putString("email", user.getEmail());
-					// preEditor.putString("login_status", DONE);
-					// preEditor.apply();
+					SharedPreferences mPreferences = getSharedPreferences(
+							"system", Context.MODE_PRIVATE);
+					SharedPreferences.Editor preEditor = mPreferences.edit();
+					String json = userJSON;
+					preEditor.putInt("UID", user.getUid());
+					preEditor.putString("name", user.getName());
+					preEditor.putString("email", user.getEmail());
+					preEditor.putString("login_status", "DONE");
+					preEditor.apply();
 					return user;
 				} else {
 					Log.d(LOG_TAG, "User does not exist.");

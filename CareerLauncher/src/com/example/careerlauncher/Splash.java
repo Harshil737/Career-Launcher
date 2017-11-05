@@ -3,9 +3,12 @@ package com.example.careerlauncher;
 import android.os.Bundle;
 import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.view.Menu;
 
 public class Splash extends Activity {
+
+	String isLogin;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -14,6 +17,10 @@ public class Splash extends Activity {
 
 		getActionBar().hide();
 
+		SharedPreferences preferences = getSharedPreferences("system",
+				MODE_PRIVATE);
+		isLogin = preferences.getString("login_status", "N/A");
+
 		Thread timerThread = new Thread() {
 			public void run() {
 				try {
@@ -21,8 +28,15 @@ public class Splash extends Activity {
 				} catch (InterruptedException e) {
 					e.printStackTrace();
 				} finally {
-					Intent loginIntent = new Intent(Splash.this, Login.class);
-					startActivity(loginIntent);
+					if (isLogin.equals("N/A")) {
+						Intent loginIntent = new Intent(Splash.this,
+								Login.class);
+						startActivity(loginIntent);
+					} else {
+						Intent homeIntent = new Intent(Splash.this,
+								MainActivity.class);
+						startActivity(homeIntent);
+					}
 				}
 			}
 		};

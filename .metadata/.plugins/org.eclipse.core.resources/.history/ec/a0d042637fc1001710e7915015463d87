@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+
+            <TextView
+                android:id="@+id/item_profile_tv_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingBottom="5dp"
+                android:text="Name" />
+
+            <android.support.v7.widget.AppCompatEditText
+                android:id="@+id/item_profile_name"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_below="@id/item_profile_tv_name"
+                android:gravity="bottom" />
+
+            <TextView
+                android:id="@+id/item_profile_tv_email"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/item_profile_name"
+                android:paddingBottom="5dp"
+                android:paddingTop="20dp"
+                android:text="Email" />
+
+            <android.support.v7.widget.AppCompatEditText
+                android:id="@+id/item_profile_mail"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_below="@id/item_profile_tv_email"
+                android:gravity="bottom" />
+
+            <TextView
+                android:id="@+id/item_profile_tv_mobile"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/item_profile_mail"
+                android:paddingBottom="5dp"
+                android:paddingTop="20dp"
+                android:text="Mobile" />
+
+            <android.support.v7.widget.AppCompatEditText
+                android:id="@+id/item_profile_mobile"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_below="@id/item_profile_tv_mobile"
+                android:gravity="bottom" />
+
+            <TextView
+                android:id="@+id/item_profile_tv_password"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/item_profile_mobile"
+                android:paddingBottom="5dp"
+                android:paddingTop="20dp"
+                android:text="Password" />
+
+            <android.support.v7.widget.AppCompatEditText
+                android:id="@+id/item_profile_password"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_below="@id/item_profile_tv_password"
+                android:gravity="bottom"
+                android:inputType="textPassword" />
+
+            <TextView
+                android:id="@+id/item_profile_tv_address"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/item_profile_password"
+                android:paddingBottom="5dp"
+                android:paddingTop="20dp"
+                android:text="Address" />
+
+            <android.support.v7.widget.AppCompatEditText
+                android:id="@+id/item_profile_address"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:layout_below="@id/item_profile_tv_address"
+                android:gravity="bottom" />
+
+            <TextView
+                android:id="@+id/item_profile_tv_city"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/item_profile_address"
+                android:paddingBottom="5dp"
+                android:paddingTop="20dp"
+                android:text="City" />
+
+            <android.support.v7.widget.AppCompatEditText
+                android:id="@+id/item_profile_city"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_below="@id/item_profile_tv_city"
+                android:gravity="bottom" />
+
+            <TextView
+                android:id="@+id/item_profile_tv_state"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/item_profile_city"
+                android:paddingBottom="5dp"
+                android:paddingTop="20dp"
+                android:text="State" />
+
+            <android.support.v7.widget.AppCompatEditText
+                android:id="@+id/item_profile_state"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_below="@id/item_profile_tv_state"
+                android:gravity="bottom" />
+
+            <TextView
+                android:id="@+id/item_profile_tv_pincode"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/item_profile_state"
+                android:paddingBottom="5dp"
+                android:paddingTop="20dp"
+                android:text="Pincode" />
+
+            <android.support.v7.widget.AppCompatEditText
+                android:id="@+id/item_profile_pincode"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_below="@id/item_profile_tv_pincode"
+                android:gravity="bottom" />
+        </RelativeLayout>
+    </ScrollView>
+
+</LinearLayout>
